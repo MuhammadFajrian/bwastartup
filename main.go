@@ -16,7 +16,6 @@ func main() {
 
 	if err != nil {
 		log.Fatal(err.Error())
-
 	}
 
 	userRepository := user.NewRepository(db)
@@ -28,6 +27,7 @@ func main() {
 
 	api.POST("/users", userHandler.RegisterUser)
 	api.POST("/sessions", userHandler.Login)
+	api.POST("/email_checkers", userHandler.CheckEmailAvailability)
 
 	router.Run()
 }
